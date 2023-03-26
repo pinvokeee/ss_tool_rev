@@ -4,7 +4,7 @@ import { MainContainer } from './features/container/MainContainer';
 function App() {
   return (
     <div className="App">
-        <MainContainer></MainContainer>
+       <MainContainer></MainContainer> 
     </div>
   );
 }

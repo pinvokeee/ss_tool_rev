@@ -1,13 +1,14 @@
-import { AppBar } from "@mui/material";
+import { AppBar, Box, Button, IconButton } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
-
 
 export const AppHeader = () => {
 
     return (
-    <AppBar>
-        <Toolbar>
-            Test
-        </Toolbar>
-    </AppBar>);
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      );
 }

@@ -1,0 +1,27 @@
+.gutter
+{
+    background-color: transparent;
+}
+
+.gutter:active
+{
+    background-color:#bcebf2;
+}
+
+.gutter:hover
+{
+    background-color:#bcebf2;
+}
+
+.gutter.gutter-horizontal
+{
+    /* right: 0; */
+    height: 100%;
+    cursor: col-resize;
+}
+
+.gutter.gutter-vertical
+{
+    width: 100%;
+    cursor: row-resize;
+}
