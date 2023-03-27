@@ -41,7 +41,7 @@ export class JobData {
     
     private loadFormData = (law_data: any) => {
 
-        return law_data.map((j: any) => new Form(j.name, this.loadFields(j.items)));
+        return law_data.map((j: any) => new Form(this.generateUuid(), j.name, this.loadFields(j.items)));
     }
 
     private loadFields = (law_data: any) => {
@@ -53,7 +53,7 @@ export class JobData {
     {
         // https://github.com/GoogleChrome/chrome-platform-analytics/blob/master/src/internal/identifier.js
         // const FORMAT: string = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-        let chars = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".split("");
+        let chars = "xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx".split("");
         for (let i = 0, len = chars.length; i < len; i++) {
             switch (chars[i]) {
                 case "x":
