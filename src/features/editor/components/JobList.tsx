@@ -16,7 +16,7 @@ export const JobList = (props: Props) =>
 {
     const handleChange = useCallback((e: SelectChangeEvent<string>) => {
         const {name, value} = e.target;
-        props.onChange(name, value);
+        props.onChange.call(this, name, value);
     }, []);
 
     return <>

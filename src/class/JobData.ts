@@ -20,8 +20,13 @@ export class JobData {
         return this.Collection.find(item => item.id == id);
     }
 
-    getSubJobFromId = (parent: Job, id: string) => {
-        return parent.subJobs.find(item => item.id == id);
+    getSubJobFromId = (id: string) => {
+        for (const mj of this.Collection) {
+            const subJob = mj.subJobs.find(sj => sj.id == id);
+            if (subJob != undefined) return subJob;
+        }
+
+        return undefined;
     }
 
     private loadJob = (law_data: any) => {

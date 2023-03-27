@@ -23,10 +23,7 @@ export const Editor = () =>
 
     const handleJobChange = useCallback((name: string, value: Job | SubJob) => {
         actions.setValue(name, value);
-        // console.log(name)
     }, [])
-
-
 
     console.log(state);
 

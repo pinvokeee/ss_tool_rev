@@ -10,4 +10,24 @@ export type EditDataObject = {
     mainJob: Job | undefined,
     subJob: SubJob | undefined,
 
+    values: JobValuePair[],
+}
+
+export type JobValuePair = {
+    subJob: SubJob,
+    formData: FormDataValues[],
+}
+
+export type FormDataValues = {
+
+    name: string,
+    fields: InputFieldValue[]
+}
+
+export type InputFieldValue = {
+
+    name: string,
+    prefix: string,
+    suffix: string,
+    value: string,
 }
