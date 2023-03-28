@@ -6,8 +6,8 @@ export type EditDataObject = {
     freeText: string,
     reasonText: string,
 
-    mainJob: Job | undefined,
-    subJob: Job | undefined,
+    mainJob: string,
+    subJob: string,
 
     values: JobValuePair[],
 }

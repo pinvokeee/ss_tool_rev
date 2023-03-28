@@ -1,5 +1,4 @@
 import { styled } from "@mui/material";
-import { JobData } from "../../class/JobData";
 import { SplitBoxHorizontal } from "../../components/elements/SplitBox"
 import { Editor } from "../editor/Editor";
 
