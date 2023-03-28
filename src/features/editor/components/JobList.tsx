@@ -1,14 +1,13 @@
 import { MenuItem, Select, SelectChangeEvent, Stack } from "@mui/material"
 import { useCallback } from "react"
 import { Job } from "../../../class/Job"
-import { SubJob } from "../../../class/SubJob"
 import { Header } from "./Head"
 
 type Props = 
 {
     name: string,
-    value: Job | SubJob | undefined,
-    jobList: Job[] | SubJob[],
+    value: Job | undefined,
+    jobList: Job[],
     onChange: (name: string, id: string) => void,
 }
 

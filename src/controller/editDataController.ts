@@ -18,7 +18,10 @@ export const editDataController = {
                 {
                     const newObject = {...state, [name]: value};
 
-                    return helper.initValues(newObject);
+                    const a = helper.initValues(newObject);
+
+                    console.log(a);
+                    return a;
                 });
 
             }, []),

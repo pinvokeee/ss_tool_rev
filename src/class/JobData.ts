@@ -1,7 +1,6 @@
 import { Form } from "./Form";
 import { InputField } from "./InputField";
 import { Job } from "./Job";
-import { SubJob } from "./SubJob";
 
 export class JobData {
 
@@ -22,7 +21,7 @@ export class JobData {
 
     getSubJobFromId = (id: string) => {
         for (const mj of this.Collection) {
-            const subJob = mj.subJobs.find(sj => sj.id == id);
+            const subJob = mj.children.find(sj => sj.id == id);
             if (subJob != undefined) return subJob;
         }
 
@@ -36,7 +35,7 @@ export class JobData {
 
     private loadSubJob = (law_data: any) => {
 
-        return law_data.map((j: any) => new SubJob(this.generateUuid(), j.name, j.tips, this.loadFormData(j.info)));
+        return law_data.map((j: any) => new Job(this.generateUuid(), j.name, j.tips).setFormData(this.loadFormData(j.info)));
     }
     
     private loadFormData = (law_data: any) => {
@@ -53,7 +52,7 @@ export class JobData {
     {
         // https://github.com/GoogleChrome/chrome-platform-analytics/blob/master/src/internal/identifier.js
         // const FORMAT: string = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-        let chars = "xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx".split("");
+        let chars = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".split("");
         for (let i = 0, len = chars.length; i < len; i++) {
             switch (chars[i]) {
                 case "x":

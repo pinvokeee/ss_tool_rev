@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, Stack, styled, TextField } from "@mui/ma
 import { useCallback, useMemo, useRef, useState } from "react"
 import { Job } from "../../../class/Job"
 import { JobData } from "../../../class/JobData"
-import { SubJob } from "../../../class/SubJob"
 import { Header } from "./Head"
 import { JobList } from "./JobList"
 
@@ -10,9 +9,9 @@ type Props =
 {
     text: string,
     jobData: JobData,    
-    onChange: (name: string, job: Job | SubJob) => void,
+    onChange: (name: string, job: Job) => void,
     mainJob: Job | undefined,
-    subJob: SubJob | undefined,
+    subJob: Job | undefined,
 }
 
 const Container = styled("div")(({theme}) => 
@@ -31,7 +30,7 @@ type job =
 export const JobEdit = (props: Props) => {
 
     const mainJobs = props.jobData.Collection;
-    const subJobs = useMemo(() => props.mainJob ? props.mainJob.subJobs : [], [props.mainJob])
+    const subJobs = useMemo(() => props.mainJob ? props.mainJob.children : [], [props.mainJob])
 
     const handleJobChange = (name: string, value: string) => {
 

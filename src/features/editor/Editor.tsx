@@ -2,7 +2,6 @@ import { MenuItem, Select, Stack } from "@mui/material";
 import { useCallback, useMemo } from "react";
 import { Job } from "../../class/Job";
 import { JobData } from "../../class/JobData";
-import { SubJob } from "../../class/SubJob";
 import { editDataController } from "../../controller/editDataController";
 import { InlineTextField } from "./components/InlineTextField";
 import { JobEdit } from "./components/JobEdit";
@@ -21,7 +20,7 @@ export const Editor = () =>
         actions.setValue(name, value);
     }, [])
 
-    const handleJobChange = useCallback((name: string, value: Job | SubJob) => {
+    const handleJobChange = useCallback((name: string, value: Job) => {
         actions.setValue(name, value);
     }, [])
 

@@ -1,5 +1,4 @@
 import { Job } from "../class/Job";
-import { SubJob } from "../class/SubJob";
 
 export type EditDataObject = {
 
@@ -8,13 +7,13 @@ export type EditDataObject = {
     reasonText: string,
 
     mainJob: Job | undefined,
-    subJob: SubJob | undefined,
+    subJob: Job | undefined,
 
     values: JobValuePair[],
 }
 
 export type JobValuePair = {
-    subJob: SubJob,
+    subJob: Job,
     formData: FormDataValues[],
 }
 
