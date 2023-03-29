@@ -1,15 +1,17 @@
 import { setFips } from "crypto";
 import { useCallback } from "react";
 import { useRecoilCallback, useRecoilState, useRecoilValue } from "recoil";
-import { AtomEditDataObject } from "../atom/atoms";
+import { AtomEditDataObject, AtomJobCollection } from "../atom/atoms";
 import { Form } from "../class/Form";
 import { EditDataObject, FormDataValues, InputFieldValue, JobValuePair } from "../types/EditDataObject";
+import { jobCollectionState } from "./jobCollectionState";
 
 export const editDataState = {
 
     useActions: () => {
 
         const [state, setState] = useRecoilState(AtomEditDataObject);
+        const jobcollection = jobCollectionState.useJobCollection();
 
         return {
             setValue: useCallback((name: string, value: any) => 
@@ -17,9 +19,16 @@ export const editDataState = {
                 setState(state => 
                 {
                     const newObject = {...state, [name]: value};
-                    // const m = helper[name];
 
-                    if (name == "mainJob") newObject.subJob = "";
+                    if (name == "mainJob") {
+                        newObject.subJob = "";
+
+                        const subs = jobcollection.getSubJobs(value);
+
+                        if (subs.size == 1) {
+                            newObject.subJob = Array.from(subs)[0][0];
+                        }
+                    }
 
                     return newObject;
                 });

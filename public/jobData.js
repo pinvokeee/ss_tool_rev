@@ -109,6 +109,7 @@ const jobData =
             [
                 {
                     name: "AAA",
+                    tips: "TEST\nTEST\nTEST",
                     info:
                     [
                         {

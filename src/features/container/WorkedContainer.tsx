@@ -5,7 +5,7 @@ import { Editor } from "../editor/Editor";
 const Container = styled("div")(({theme}) =>
 (
     {
-
+        
     }
 ));
 

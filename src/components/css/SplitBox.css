@@ -16,6 +16,7 @@
 .gutter.gutter-horizontal
 {
     /* right: 0; */
+    border-right: solid 1px lightgray;
     height: 100%;
     cursor: col-resize;
 }
@@ -23,5 +24,6 @@
 .gutter.gutter-vertical
 {
     width: 100%;
+    border-bottom: solid 1px lightgray;
     cursor: row-resize;
 }
