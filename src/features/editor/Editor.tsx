@@ -8,6 +8,7 @@ import { MultipleJobSelecter } from "./components/MultipleJobSelecter";
 import { JobSelecter } from "./components/JobSelecter";
 import { MultiLineField } from "./components/MultiLineField";
 import { jobCollectionState } from "../../state/jobCollectionState";
+import { Fields } from "./components/Fields";
 
 const Container = styled(Stack)(({theme}) =>
 (
@@ -20,6 +21,10 @@ export const Editor = () =>
 {
     const state = editDataState.useEditDataObject();
     const actions = editDataState.useActions();
+    
+    const forms = editDataState.useCurrentFormData();
+
+    console.log(forms);
 
     const jobMap: JobCollection = jobCollectionState.useJobCollection();
 
@@ -40,7 +45,10 @@ export const Editor = () =>
                 subSelectedId={state.subJob} 
                 onChange={handleJobChange} />
 
-        <MultiLineField text="2.テスト" name="freeText" value={state.freeText} onChange={handleChange}></MultiLineField>
+        <Fields forms={forms} />
+
+        <MultiLineField text="5.退職理由" name="freeText" value={state.freeText} onChange={handleChange}></MultiLineField>
+        <MultiLineField text="5.退職理由" name="freeText" value={state.freeText} onChange={handleChange}></MultiLineField>
         </Container>
         
     )
