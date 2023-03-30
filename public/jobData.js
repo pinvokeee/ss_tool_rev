@@ -126,6 +126,50 @@ const jobData =
                     ]
                 }
             ]
+        },
+
+        {
+            name: "ジョブB",
+            subJobs:
+            [
+                {
+                    name: "AAA",
+                    tips: "TEST\nTEST\nTEST",
+                    info:
+                    [
+                        {
+                            name: "TEST",
+                            items:
+                            [
+                                {
+                                    name: "A1",
+                                    prefix: "@",
+                                    suffix: ";",
+                                },
+                            ]
+                        },
+                    ]
+                },
+
+                                {
+                    name: "CCCC",
+                    tips: "TEST\nTEST\nTEST",
+                    info:
+                    [
+                        {
+                            name: "TEST",
+                            items:
+                            [
+                                {
+                                    name: "A1",
+                                    prefix: "@",
+                                    suffix: ";",
+                                },
+                            ]
+                        },
+                    ]
+                }
+            ]
         }
     ]
 }

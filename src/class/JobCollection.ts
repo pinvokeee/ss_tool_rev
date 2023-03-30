@@ -1,3 +1,5 @@
+import { Form } from "./Form";
+import { InputField } from "./InputField";
 import { Job } from "./Job";
 
 export type JobSetting = {
@@ -7,6 +9,8 @@ export type JobSetting = {
 }
 
 export class JobCollection extends Map<string, JobSetting> {
+
+    private uuidHistories: string[] = [];
 
     constructor(source?: [string, JobSetting][]) {
         super(new Map(source))
@@ -25,7 +29,10 @@ export class JobCollection extends Map<string, JobSetting> {
     load() {
         //@ts-ignore
         const jd = jobData;
+        
+        this.uuidHistories = [];
         this.loadJob(jd.jobs);
+
         return this;
     }
 
@@ -35,10 +42,13 @@ export class JobCollection extends Map<string, JobSetting> {
 
         source.forEach((ojob: any) => {
             
-            const uuid = this.genUUID();
+            const uuid = this.generateUUID();
             const job: Job = {
                 name: ojob.name,
                 tips: ojob.tips,
+                form: ojob.info ? ojob.info.map((info: any) => 
+                    new Form(this.generateUUID(), info.name, info.items ? info.items.map((item: any) =>
+                        (new InputField(this.generateUUID(), item.name, item.prefix, item.suffix))) : [])) : [],
             }
 
             this.set(uuid, { job, parentId });
@@ -46,7 +56,21 @@ export class JobCollection extends Map<string, JobSetting> {
         });
     }
 
+    private generateUUID() {
+        
+        let uuid = this.genUUID();
+
+        while (this.uuidHistories.find(id => id == uuid) != undefined) {
+            uuid = this.genUUID();
+        }
+
+        this.uuidHistories.push(uuid);
+
+        return uuid;
+    }
+
     private genUUID() {
+
         let chars = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".split("");
         for (let i = 0, len = chars.length; i < len; i++) {
             switch (chars[i]) {
@@ -58,6 +82,7 @@ export class JobCollection extends Map<string, JobSetting> {
                     break;
             }
         }
+
         return chars.join("");
     }
 

@@ -6,7 +6,7 @@ import { AtomKeys } from "./keys";
 export const AtomEditDataObject = atom<EditDataObject>({
     
     key: AtomKeys.Data,
-    default: { title: "", freeText: "", reasonText: "", mainJob: "", subJob: "", values: [] }
+    default: { title: "", freeText: "", reasonText: "", mainJob: "", subJob: "", values: new Map() }
     
 });
 

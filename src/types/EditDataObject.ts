@@ -1,3 +1,4 @@
+import { InputField } from "../class/InputField";
 import { Job } from "../class/Job";
 
 export type EditDataObject = {
@@ -9,24 +10,20 @@ export type EditDataObject = {
     mainJob: string,
     subJob: string,
 
-    values: JobValuePair[],
+    values: Map<string, FormInputData[]>,
 }
 
-export type JobValuePair = {
-    subJob: Job,
-    formData: FormDataValues[],
-}
-
-export type FormDataValues = {
+export type FormInputData = {
 
     name: string,
-    fields: InputFieldValue[]
+    id: string,
+    checked: false,
+    fields: FieldValuePair[],
 }
 
-export type InputFieldValue = {
+export type FieldValuePair = {
 
-    name: string,
-    prefix: string,
-    suffix: string,
+    id: string,
+    field: InputField,
     value: string,
 }
