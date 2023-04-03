@@ -17,7 +17,7 @@ export type FormInputData = {
 
     name: string,
     id: string,
-    checked: false,
+    checked: boolean,
     fields: FieldValuePair[],
 }
 
